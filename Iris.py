@@ -80,7 +80,7 @@ fig.suptitle('Algorithm Comparison')
 ax = fig.add_subplot(111)
 plt.boxplot(results)
 ax.set_xticklabels(names)
-#plt.show()
+plt.show()
 
 # Make predictions on validation dataset
 knn = KNeighborsClassifier()
