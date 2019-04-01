@@ -19,7 +19,7 @@ url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = pandas.read_csv(url, names=names)
 
-app = gui()
+#app = gui()
 #app.setFont(18)
 
 #app.addLabel("title", "Welcome to the Machine Learning Test")
@@ -92,8 +92,6 @@ ax.set_xticklabels(names)
 knn = KNeighborsClassifier()
 knn.fit(X_train, Y_train)
 predictions = knn.predict(X_validation)
-#print(accuracy_score(Y_validation, predictions))
-#print(confusion_matrix(Y_validation, predictions))
-#print(classification_report(Y_validation, predictions))
-
-#app.addLabel("title", accuracy_score(Y_validation, predictions))
+print(accuracy_score(Y_validation, predictions))
+print(confusion_matrix(Y_validation, predictions))
+print(classification_report(Y_validation, predictions))
