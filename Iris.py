@@ -12,11 +12,17 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from appJar import gui
 
 #Load dataset
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = pandas.read_csv(url, names=names)
+
+app = gui()
+#app.setFont(18)
+
+#app.addLabel("title", "Welcome to the Machine Learning Test")
 	
 # shape
 #print(dataset.shape)
@@ -71,7 +77,7 @@ for name, model in models:
 	results.append(cv_results)
 	names.append(name)
 	msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
-	print(msg)
+	#print(msg)
 
 
 # Compare Algorithms
@@ -80,12 +86,14 @@ fig.suptitle('Algorithm Comparison')
 ax = fig.add_subplot(111)
 plt.boxplot(results)
 ax.set_xticklabels(names)
-plt.show()
+#plt.show()
 
 # Make predictions on validation dataset
 knn = KNeighborsClassifier()
 knn.fit(X_train, Y_train)
 predictions = knn.predict(X_validation)
-print(accuracy_score(Y_validation, predictions))
-print(confusion_matrix(Y_validation, predictions))
-print(classification_report(Y_validation, predictions))
+#print(accuracy_score(Y_validation, predictions))
+#print(confusion_matrix(Y_validation, predictions))
+#print(classification_report(Y_validation, predictions))
+
+#app.addLabel("title", accuracy_score(Y_validation, predictions))
